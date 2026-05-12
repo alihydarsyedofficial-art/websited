@@ -45,7 +45,10 @@
         "customerPhone": { "type": "string" },
         "customerAddress": { "type": "string" },
         "customerNotes": { "type": "string" },
-        "items": { "type": "array" },
+        "items": { 
+          "type": "array",
+          "items": { "type": "object" }
+        },
         "total": { "type": "number" },
         "status": { "type": "string", "enum": ["pending", "confirmed", "processing", "delivered", "cancelled"] },
         "createdAt": { "type": "string", "format": "date-time" }
@@ -62,7 +65,8 @@
         "image": { "type": "string" },
         "link": { "type": "string" },
         "type": { "type": "string", "enum": ["hero", "promotional"] }
-      }
+      },
+      "required": ["title", "image", "type"]
     }
   },
   "firestore": {
